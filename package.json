@@ -1,9 +1,9 @@
 {
-  "name": "greetings",
+  "name": "my-website",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://ronakpatel5454.github.io/greetings",
+  "homepage": "https://ronakpatel5454.github.io/my-website",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
