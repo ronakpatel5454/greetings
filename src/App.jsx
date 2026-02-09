@@ -1,11 +1,12 @@
+import { Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Valentine from './Valentine'
 
-function App() {
+function Home() {
   const [count, setCount] = useState(0)
-
   return (
     <>
       <div>
@@ -29,6 +30,15 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
+  )
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/valentine" element={<Valentine />} />
+    </Routes>
   )
 }
 

@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap');
+
+.valentine-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #fce4ec;
+    /* Soft pink background */
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.valentine-container-2 {
+    /* background-image: url("https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3anczdjdncTBxNDM1bGl2Zjk0ZDJscW53bjV0bzQwd3Noc3FqdHJ2ayZlcD12MV9naWZzX3NlYXJjaCZjdD1n/RH7e0AYVpzSBeGDxF3/giphy.gif"); */
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 90%;
+    width: 400px;
+    position: relative;
+}
+
+.cat-animation {
+    width: 15rem;
+    height: 15rem;
+    margin-bottom: 1.5rem;
+}
+
+.question {
+    color: #4a4a4a;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.no-phrase {
+    color: #e91e63;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    min-height: 1.5em;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    min-height: 120px;
+    /* Space for growing Yes button */
+}
+
+.yes-button {
+    background-color: #4caf50;
+    /* Green for Yes */
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.yes-button:hover {
+    transform: scale(1.05);
+}
+
+.no-button {
+    background-color: #e91e63;
+    /* Pink for No */
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+}
+
+.success-content {
+    text-align: center;
+}
+
+.success-message {
+    color: #e91e63;
+    font-size: 2.5rem;
+    font-weight: 600;
+    animation: bounce 0.5s ease infinite alternate;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 600px) {
+    .card {
+        padding: 1.25rem;
+        width: 90%;
+        max-width: 320px;
+    }
+
+    .question {
+        font-size: 1.35rem;
+    }
+
+    .cat-animation {
+        width: 10rem;
+        height: auto;
+    }
+
+    .no-phrase {
+        font-size: 1rem;
+    }
+}
