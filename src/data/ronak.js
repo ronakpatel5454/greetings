@@ -1,6 +1,6 @@
 export const ronakData = {
   name: "Ronak Patel",
-  // profileImage: "https://api.dicebear.com/7.x/avataaars/svg?seed=Ronak",
+  profileImage: "/images/ronak/ronak1.png",
   title: "Web Developer",
   summary: "Enthusiastic IT Developer with a passion for building responsive and user-friendly web applications. Experienced in modern JavaScript frameworks and UI/UX design.",
   contact: {
@@ -126,5 +126,14 @@ export const ronakData = {
       description: "A full-stack shopping application with secure checkout.",
       link: "#"
     }
+  ],
+  hobbies: [
+    "Coding",
+    "Traveling",
+    "Photography",
+    "Learning New Tech",
+    "Reading Books",
+    "Cricket",
+    "Games"
   ]
 };

@@ -28,7 +28,11 @@ const Resume = () => {
         <header className="resume-header">
           {userData.profileImage && (
             <div className="profile-image-container">
-              <img src={userData.profileImage} alt={userData.name} className="profile-image" />
+              <img 
+                src={userData.profileImage.startsWith('http') ? userData.profileImage : (import.meta.env.BASE_URL + userData.profileImage).replace(/\/+/g, '/')} 
+                alt={userData.name} 
+                className="profile-image" 
+              />
             </div>
           )}
           <h1 className="resume-name">{userData.name}</h1>
@@ -117,6 +121,17 @@ const Resume = () => {
                 )}
               </div>
             </section>
+
+            {userData.hobbies && (
+              <section className="resume-section" style={{ marginTop: '2rem' }}>
+                <h2 className="section-title">Hobbies</h2>
+                <div className="skills-list">
+                  {userData.hobbies.map((hobby, index) => (
+                    <span key={index} className="skill-tag">{hobby}</span>
+                  ))}
+                </div>
+              </section>
+            )}
           </div>
         </div>
       </div>

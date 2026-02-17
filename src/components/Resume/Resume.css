@@ -58,7 +58,7 @@
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
-    border: 4px solid var(--bg-dark);
+    /* border: 4px solid var(--bg-dark); */
 }
 
 .resume-name {
