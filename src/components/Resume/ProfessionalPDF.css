@@ -1,0 +1,128 @@
+/* Professional PDF Template Styles */
+.professional-pdf-container {
+    background: #fff;
+    color: #333;
+    font-family: 'Inter', 'Segoe UI', serif;
+    width: 8.5in;
+    min-height: 11in;
+    padding: 0;
+    margin: 0;
+}
+
+.pdf-header {
+    background: #fff;
+    border-top: 25px solid #4e5e6e;
+    padding: 40px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    position: relative;
+    break-inside: avoid;
+}
+
+.pdf-header::after {
+    content: '';
+    position: absolute;
+    top: -25px;
+    left: 150px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 25px solid #fff;
+}
+
+.pdf-header-left img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.pdf-header-right h1 {
+    font-size: 42px;
+    color: #4e5e6e;
+    margin: 0 0 15px 0;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.pdf-contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+.pdf-body {
+    padding: 0 40px 40px;
+}
+
+.pdf-section {
+    display: flex;
+    margin-bottom: 0px;
+    /* Removed margin to handle padding in label */
+    border-top: 1px solid #ddd;
+    padding: 15px 0;
+    break-inside: avoid;
+    /* Prevents section header from separating from content */
+}
+
+.pdf-section-label {
+    width: 180px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #4e5e6e;
+    border-left: 10px solid #4e5e6e;
+    padding-left: 15px;
+    padding-top: 5px;
+    flex-shrink: 0;
+}
+
+.pdf-section-content {
+    flex: 1;
+    padding-left: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.pdf-skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 40px;
+    list-style: disc;
+    padding-left: 15px;
+}
+
+.pdf-experience-item,
+.pdf-edu-item {
+    margin-bottom: 20px;
+    break-inside: avoid;
+    /* Prevents individual items from splitting */
+}
+
+.pdf-experience-item:last-child,
+.pdf-edu-item:last-child {
+    margin-bottom: 0;
+}
+
+.pdf-exp-header,
+.pdf-edu-header {
+    margin-bottom: 5px;
+}
+
+.pdf-exp-company,
+.pdf-edu-degree {
+    color: #555;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+.pdf-exp-desc {
+    padding-left: 20px;
+}
+
+.pdf-languages-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}

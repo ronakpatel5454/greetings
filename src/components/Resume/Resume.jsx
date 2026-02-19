@@ -1,12 +1,52 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
+import html2pdf from 'html2pdf.js';
 import { users, defaultUser } from '../../data/users';
 import './Resume.css';
+import ProfessionalPDF from './ProfessionalPDF';
 
 const Resume = () => {
   const [searchParams] = useSearchParams();
   const userKey = searchParams.get('user') || defaultUser;
-  
+  const resumeRef = useRef();
+  const professionalResumeRef = useRef();
+
+  const handleDownload = () => {
+    const element = resumeRef.current;
+    const opt = {
+      margin: 0.5,
+      filename: `${userKey}_Resume_Modern.pdf`,
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true },
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+
+    const buttons = document.querySelectorAll('.download-group-container button');
+    buttons.forEach(btn => btn.style.display = 'none');
+
+    html2pdf().set(opt).from(element).save().then(() => {
+      buttons.forEach(btn => btn.style.display = 'flex');
+    });
+  };
+
+  const handleProfessionalDownload = () => {
+    const element = professionalResumeRef.current;
+    if (!element) return;
+    
+    element.style.display = 'block';
+    const opt = {
+      margin: 0,
+            filename: `${userKey}_Resume_Professional.pdf`,
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true, letterRendering: true },
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+
+    html2pdf().set(opt).from(element).save().then(() => {
+      element.style.display = 'none';
+    });
+  };
+
   const userData = useMemo(() => {
     return users[userKey.toLowerCase()];
   }, [userKey]);
@@ -22,7 +62,15 @@ const Resume = () => {
   }
 
   return (
-    <div className="resume-container">
+    <div className="resume-container" ref={resumeRef}>
+      <div className="download-group-container">
+        <button className="download-btn-fixed" onClick={handleDownload} title="Download Modern PDF">
+          <span className="download-icon">📥</span>
+        </button>
+        <button className="download-btn-prof-fixed" onClick={handleProfessionalDownload} title="Download Professional PDF">
+          <span className="download-icon">📄</span>
+        </button>
+      </div>
       <div className="resume-wrapper">
         {/* Header */}
         <header className="resume-header">
@@ -104,18 +152,22 @@ const Resume = () => {
                   return (
                     <div key={index} className="skill-category">
                       <h4 className="skill-category-title">{title}</h4>
-                      <div className="skills-list">
-                        {skills.map((skill, sIndex) => (
-                          <span key={sIndex} className="skill-tag">{skill}</span>
-                        ))}
-                      </div>
+                        <div className="skills-list">
+                          {skills.map((skill, sIndex) => (
+                            <span key={sIndex} className="skill-tag">
+                              {typeof skill === 'object' ? skill.name : skill}
+                            </span>
+                          ))}
+                        </div>
                     </div>
                   );
                 })}
                 {(!Object.keys(userData).some(key => key.endsWith('_skills')) && userData.skills) && (
                   <div className="skills-list">
                     {userData.skills.map((skill, index) => (
-                      <span key={index} className="skill-tag">{skill}</span>
+                      <span key={index} className="skill-tag">
+                        {typeof skill === 'object' ? skill.name : skill}
+                      </span>
                     ))}
                   </div>
                 )}
@@ -135,6 +187,7 @@ const Resume = () => {
           </div>
         </div>
       </div>
+      <ProfessionalPDF userData={userData} ref={professionalResumeRef} />
     </div>
   );
 };

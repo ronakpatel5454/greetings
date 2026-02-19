@@ -1,8 +1,9 @@
 export const ronakData = {
   name: "Ronak Patel",
   profileImage: "/images/ronak/ronak1.png",
+  uimage: "/images/ronak/ronak1.png",
   title: "Web Developer",
-  summary: "Enthusiastic IT Developer with a passion for building responsive and user-friendly web applications. Experienced in modern JavaScript frameworks and UI/UX design.",
+  summary: "Enthusiastic and professional IT Developer with a passion for building responsive and user-friendly web applications. Experienced in modern JavaScript frameworks (React, Vue, Next.js), backend technologies (Laravel, Node.js), and database management. I thrive in dynamic environments and enjoy solving complex problems through clean, efficient code and intuitive UI/UX design.",
   contact: {
     email: "ronakpatel4142@gmail.com",
     phone: "+91 7567924142",
@@ -11,83 +12,83 @@ export const ronakData = {
     github: "github.com/ronakpatel"
   },
   skills: [
-    "JavaScript (ES6+)",
-    "React.js",
-    "Vue.js",
-    "Next.js",
-    "Node.js",
-    "Laravel",
-    "HTML5 & CSS3",
-    "Responsive Design",
-    "Git & GitHub",
-    "Vite",
-    "REST APIs",
-    "SQL",
-    "PHP",
-    "PostgreSQL",
-    "MySQL",
-    "MongoDB",
-    "Graphql",
-    "Supabase",
-    "Tailwind CSS",
-    "Figma",
-    "Deployment",
-    "Cloudinary",
-    "S3 Bucket",
-    "Razorpay",
-    "Stripe",
-    "PayPal",
-    "Nginx",
-    "Postman",
-    "VS Code",
+    { name: "JavaScript (ES6+)", level: "95%" },
+    { name: "React.js", level: "90%" },
+    { name: "Vue.js", level: "85%" },
+    { name: "Next.js", level: "85%" },
+    { name: "Node.js", level: "80%" },
+    { name: "Laravel", level: "90%" },
+    { name: "HTML5 & CSS3", level: "100%" },
+    { name: "Responsive Design", level: "95%" },
+    { name: "Git & GitHub", level: "90%" },
+    { name: "Vite", level: "85%" },
+    { name: "REST APIs", level: "90%" },
+    { name: "SQL", level: "80%" },
+    { name: "PHP", level: "85%" },
+    { name: "PostgreSQL", level: "80%" },
+    { name: "MySQL", level: "85%" },
+    { name: "MongoDB", level: "80%" },
+    { name: "Graphql", level: "85%" },
+    { name: "Supabase", level: "80%" },
+    { name: "Tailwind CSS", level: "95%" },
+    { name: "Figma", level: "80%" },
+    { name: "Deployment", level: "85%" },
+    { name: "Cloudinary", level: "80%" },
+    { name: "S3 Bucket", level: "80%" },
+    { name: "Razorpay", level: "85%" },
+    { name: "Stripe", level: "85%" },
+    { name: "PayPal", level: "80%" },
+    { name: "Nginx", level: "80%" },
+    { name: "Postman", level: "90%" },
+    { name: "VS Code", level: "95%" },
   ],
 
   frontend_skills: [
-    "JavaScript (ES6+)",
-    "React.js",
-    "Vue.js",
-    "Next.js",
-    "HTML5",
-    "CSS3",
-    "Tailwind CSS",
-    "Responsive Design",
-    "Vite"
+    { name: "JavaScript (ES6+)", level: "95%" },
+    { name: "React.js", level: "90%" },
+    { name: "Vue.js", level: "85%" },
+    { name: "Next.js", level: "85%" },
+    { name: "HTML5", level: "100%" },
+    { name: "CSS3", level: "100%" },
+    { name: "Tailwind CSS", level: "95%" },
+    { name: "Responsive Design", level: "95%" },
+    { name: "Vite", level: "85%" }
   ],
   backend_skills: [
-    "Node.js",
-    "Laravel",
-    "PHP",
-    "GraphQL",
-    "REST APIs"
+    { name: "Node.js", level: "80%" },
+    { name: "Laravel", level: "90%" },
+    { name: "PHP", level: "85%" },
+    { name: "GraphQL", level: "85%" },
+    { name: "REST APIs", level: "90%" }
   ],
   database_skills: [
-    "PostgreSQL",
-    "MySQL",
-    "MongoDB",
-    "Supabase"
+    { name: "PostgreSQL", level: "80%" },
+    { name: "MySQL", level: "85%" },
+    { name: "MongoDB", level: "80%" },
+    { name: "Supabase", level: "80%" }
   ],
   cloud_storage_skills: [
-    "Cloudinary",
-    "S3 Bucket",
-    "Supabase"
+    { name: "Cloudinary", level: "80%" },
+    { name: "S3 Bucket", level: "80%" },
+    { name: "Supabase", level: "80%" }
   ],
   payments_integrations_skills: [
-    "Razorpay",
-    "Stripe",
-    "PayPal"
+    { name: "Razorpay", level: "85%" },
+    { name: "Stripe", level: "85%" },
+    { name: "PayPal", level: "80%" }
   ],
   devops_deployment_skills: [
-    "Deployment",
-    "Nginx"
+    { name: "Deployment", level: "85%" },
+    { name: "Nginx", level: "80%" }
   ],
   tools_developer_utilities_skills: [
-    "Git & GitHub",
-    "Vite",
-    "Postman",
-    "VS Code"
+    { name: "Git & GitHub", level: "90%" },
+    { name: "Vite", level: "85%" },
+    { name: "Postman", level: "90%" },
+    { name: "VS Code", level: "95%" }
   ],
   ui_ux_design_tools_skills: [
-    "Figma"
+    { name: "Figma", level: "80%" }
   ],
   experience: [
     {

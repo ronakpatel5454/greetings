@@ -5,6 +5,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Valentine from './Valentine'
 import Resume from './components/Resume/Resume'
+import Resume1 from './components/Resume/Resume1'
 
 function Home() {
 // ... existing Home function ...
@@ -16,6 +17,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/valentine" element={<Valentine />} />
       <Route path="/resume" element={<Resume />} />
+      <Route path="/resume-1" element={<Resume1 />} />
     </Routes>
   )
 }
