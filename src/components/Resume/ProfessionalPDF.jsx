@@ -33,33 +33,28 @@ const ProfessionalPDF = React.forwardRef(({ userData }, ref) => {
                 <div className="pdf-section">
                     <div className="pdf-section-label">SKILLS</div>
                     <div className="pdf-section-content">
-                        <ul className="pdf-skills-list">
-                            {(userData.skills || []).map((skill, i) => (
-                                <li key={i}>{typeof skill === 'object' ? skill.name : skill}</li>
-                            ))}
-                        </ul>
+                        {Object.entries(userData).filter(([key]) => key.endsWith('_skills')).map(([key, skills], index) => {
+                            const title = key.split('_').map(word => word === 'skills' ? '' : word.charAt(0).toUpperCase() + word.slice(1)).join(' ').trim();
+                            return (
+                                <div key={index} style={{ marginBottom: '10px' }}>
+                                    <strong style={{ color: '#4e5e6e', fontSize: '13px', display: 'block', marginBottom: '4px' }}>
+                                        {title.toUpperCase()}
+                                    </strong>
+                                    <span style={{ fontSize: '13px', color: '#333' }}>
+                                        {skills.map(s => typeof s === 'object' ? s.name : s).join(', ')}
+                                    </span>
+                                </div>
+                            );
+                        })}
+                        {!Object.keys(userData).some(key => key.endsWith('_skills')) && userData.skills && (
+                            <ul className="pdf-skills-list">
+                                {(userData.skills || []).map((skill, i) => (
+                                    <li key={i}>{typeof skill === 'object' ? skill.name : skill}</li>
+                                ))}
+                            </ul>
+                        )}
                     </div>
                 </div>
-
-                {/* Experience */}
-                {userData.experience && userData.experience.length > 0 && (
-                    <div className="pdf-section">
-                        <div className="pdf-section-label">EXPERIENCE</div>
-                        <div className="pdf-section-content">
-                            {userData.experience.map((exp, i) => (
-                                <div key={i} className="pdf-experience-item">
-                                    <div className="pdf-exp-header">
-                                        <strong>{exp.role.toUpperCase()}, {exp.period}</strong>
-                                    </div>
-                                    <div className="pdf-exp-company">{exp.company}, {exp.location || 'Surat, India'}</div>
-                                    <ul className="pdf-exp-desc">
-                                        <li>{exp.description}</li>
-                                    </ul>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
 
                 {/* Education */}
                 {userData.education && userData.education.length > 0 && (
@@ -79,16 +74,42 @@ const ProfessionalPDF = React.forwardRef(({ userData }, ref) => {
                 )}
 
                 {/* Languages */}
-                <div className="pdf-section">
-                    <div className="pdf-section-label">LANGUAGES</div>
-                    <div className="pdf-section-content">
-                        <div className="pdf-languages-grid">
-                            <div><strong>Hindi:</strong> Native speaker</div>
-                            <div><strong>English:</strong> Proficient</div>
-                            <div><strong>Gujarati:</strong> Native speaker</div>
+                {userData.languages && Object.keys(userData.languages).length > 0 && (
+                    <div className="pdf-section">
+                        <div className="pdf-section-label">LANGUAGES</div>
+                        <div className="pdf-section-content">
+                            <span style={{ fontSize: '13px', color: '#333' }}>
+                                {Object.keys(userData.languages).join(', ')}
+                            </span>
                         </div>
                     </div>
-                </div>
+                )}
+
+                 {/* Experience */}
+                {userData.experience && userData.experience.length > 0 && (
+                    <div className="pdf-section pdf-experience-section">
+                        <div className="pdf-section-label">EXPERIENCE</div>
+                        <div className="pdf-section-content">
+                            {userData.experience.map((exp, i) => (
+                                <div key={i} className="pdf-experience-item">
+                                    <div className="pdf-exp-header">
+                                        <strong>{exp.role.toUpperCase()}, {exp.period}</strong>
+                                    </div>
+                                    <div className="pdf-exp-company">{exp.company}, {exp.location || 'Surat, India'}</div>
+                                    <ul className="pdf-exp-desc">
+                                        {Array.isArray(exp.description) ? (
+                                            exp.description.map((desc, dIdx) => (
+                                                <li key={dIdx} style={{ marginBottom: '4px' }}>{desc}</li>
+                                            ))
+                                        ) : (
+                                            <li>{exp.description}</li>
+                                        )}
+                                    </ul>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );

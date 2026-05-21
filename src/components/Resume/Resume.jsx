@@ -36,10 +36,11 @@ const Resume = () => {
     element.style.display = 'block';
     const opt = {
       margin: 0,
-            filename: `${userKey}_Resume_Professional.pdf`,
+      filename: `${userKey}_Resume_Professional.pdf`,
       image: { type: 'jpeg', quality: 0.98 },
       html2canvas: { scale: 2, useCORS: true, letterRendering: true },
-      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+      pagebreak: { mode: ['css', 'legacy'] }
     };
 
     html2pdf().set(opt).from(element).save().then(() => {
@@ -102,20 +103,6 @@ const Resume = () => {
           {/* Main Content */}
           <div className="resume-main">
             <section className="resume-section" style={{ marginBottom: '2rem' }}>
-              <h2 className="section-title">Experience</h2>
-              {userData.experience.map((exp, index) => (
-                <div key={index} className="timeline-item">
-                  <div className="timeline-header">
-                    <h3 className="item-role">{exp.role}</h3>
-                    <span className="item-period">{exp.period}</span>
-                  </div>
-                  <p className="item-company">{exp.company}</p>
-                  <p className="item-desc">{exp.description}</p>
-                </div>
-              ))}
-            </section>
-
-            <section className="resume-section" style={{ marginBottom: '2rem' }}>
               <h2 className="section-title">Education</h2>
               {userData.education.map((edu, index) => (
                 <div key={index} className="timeline-item">
@@ -124,6 +111,28 @@ const Resume = () => {
                     <span className="item-period">{edu.year}</span>
                   </div>
                   <p className="item-company">{edu.institution}</p>
+                </div>
+              ))}
+            </section>
+
+            <section className="resume-section" style={{ marginBottom: '2rem' }}>
+              <h2 className="section-title">Experience</h2>
+              {userData.experience.map((exp, index) => (
+                <div key={index} className="timeline-item">
+                  <div className="timeline-header">
+                    <h3 className="item-role">{exp.role}</h3>
+                    <span className="item-period">{exp.period}</span>
+                  </div>
+                  <p className="item-company">{exp.company}</p>
+                  {Array.isArray(exp.description) ? (
+                    <ul className="item-desc-list" style={{ paddingLeft: '1.2rem', marginTop: '0.5rem', listStyleType: 'disc' }}>
+                      {exp.description.map((desc, dIdx) => (
+                        <li key={dIdx} className="item-desc-bullet" style={{ marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>{desc}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="item-desc">{exp.description}</p>
+                  )}
                 </div>
               ))}
             </section>

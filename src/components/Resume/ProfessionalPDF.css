@@ -126,3 +126,34 @@
     grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
+
+/* Custom Experience Section Layout to start on new page and use full width */
+.pdf-experience-section {
+    page-break-before: always !important;
+    break-before: always !important;
+    display: block !important; /* Switch from flex to block layout */
+    border-top: none !important; /* No top border needed since it's at the start of a page */
+    padding-top: 30px !important;
+    break-inside: auto !important; /* Allow the section to split naturally across pages */
+}
+
+.pdf-experience-section .pdf-section-label {
+    width: 100% !important;
+    border-left: 10px solid #4e5e6e !important;
+    padding-left: 15px !important;
+    padding-bottom: 5px !important;
+    margin-bottom: 25px !important;
+    font-size: 16px !important;
+    letter-spacing: 1px !important;
+}
+
+.pdf-experience-section .pdf-section-content {
+    padding-left: 15px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.pdf-experience-section .pdf-experience-item {
+    break-inside: avoid-page !important; /* Avoid break inside a single job header and first bullets if possible */
+    margin-bottom: 25px !important;
+}
